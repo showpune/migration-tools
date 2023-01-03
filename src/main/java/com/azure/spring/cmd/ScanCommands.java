@@ -1,13 +1,23 @@
 package com.azure.spring.cmd;
 
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
 
+import java.io.IOException;
+
+
 @ShellComponent
+@RequiredArgsConstructor
 public class ScanCommands {
 
-    @ShellMethod(key = {"list", "l"}, value = "List all existing (applicable and non-applicable) recipes.")
-    public int add(int a, int b) {
-        return a + b;
+    @Autowired
+    RewriteRecipeRepository rewriteRecipeRepository;
+
+    @ShellMethod(key = {"scan"}, value = "Scan Path")
+    public String scan(String path) throws IOException {
+        rewriteRecipeRepository.compileWorkspace(path);
+       return "Set source code path:"+path;
     }
 }
