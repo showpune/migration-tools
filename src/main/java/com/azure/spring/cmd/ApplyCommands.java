@@ -1,20 +1,12 @@
 package com.azure.spring.cmd;
 
 import lombok.RequiredArgsConstructor;
-import org.openrewrite.Recipe;
-import org.openrewrite.Result;
-import org.openrewrite.internal.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.shell.Availability;
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Collection;
-import java.util.List;
 
 @ShellComponent
 @RequiredArgsConstructor
